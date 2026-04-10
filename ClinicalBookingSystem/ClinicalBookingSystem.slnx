@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../ClinicalBookingSystem.Api/ClinicalBookingSystem.Api.csproj" />
+  <Project Path="../ClinicalBookingSystem.App/ClinicalBookingSystem.App.csproj" />
+  <Project Path="../ClinicalBookingSystem.Client/ClinicalBookingSystem.Client.csproj" Id="86d69485-cca5-4d0a-8984-b346cfaa5fd9" />
+  <Project Path="../ClinicalBookingSystem.Infrastructure/ClinicalBookingSystem.Infrastructure.csproj" />
+  <Project Path="../ClinicalBookingSystem.Tests/ClinicalBookingSystem.Tests.csproj" Id="63dd2eee-9d65-4296-862b-9531adf07938" />
+</Solution>

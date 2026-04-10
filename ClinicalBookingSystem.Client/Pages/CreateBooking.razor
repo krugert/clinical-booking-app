@@ -1,0 +1,111 @@
+﻿@page "/create-booking"
+@inject HttpClient Http
+@inject IJSRuntime JS
+@inject MudBlazor.ISnackbar Snackbar
+@inject NavigationManager Navigation
+@rendermode InteractiveWebAssembly
+@using ClinicalBookingSystem.Infrastructure.Models.DTOs
+
+<PageTitle>Create Booking</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center" Style="height: 100vh;">
+    <MudGrid>
+        <!-- Left Column: Illustration or Title -->
+        <MudItem xs="12" md="6" Class="d-flex flex-column justify-center align-center">
+
+            <MudText Typo="Typo.h3" Color="Color.Success" Align="Align.Center" Class="mt-2 mb-2 fw-bold drop-shadow">
+				Create Booking
+            </MudText>
+
+            <MudText Typo="Typo.body1" Align="Align.Center" Class="mb-6 opacity-90 drop-shadow">
+                Please make a booking
+            </MudText>
+
+        </MudItem>
+
+        <!-- Right Column: Create Booking Form -->
+        <MudItem xs="12" md="6">
+            <MudPaper Class="pa-8" Elevation="4">
+                <MudText Typo="Typo.h5" Class="mb-4">Create Booking</MudText>
+
+                <MudForm @ref="form" @bind-IsValid="@success">
+
+                    <MudSelect @bind-Value="model.ClinicId" Label="Select a clinic" HelperText="Clinic" OpenIcon="@Icons.Material.Filled.Home" AdornmentColor="Color.Secondary">
+                        @foreach (var item in clinics)
+                        {
+                            <MudSelectItem Value="@item.ClinicId">@item.ClinicName</MudSelectItem>
+                        }
+                    </MudSelect>
+
+                    <MudDatePicker Label="Booking Date" @bind-Date="_date" />
+
+                    <MudContainer MaxWidth="MaxWidth.Large">
+                        @foreach (var slot in TimeSlots)
+                        {
+                            <MudGrid Spacing="1">
+                                <MudItem xs="12">
+                                    <MudText Typo="Typo.body2" Align="Align.Center">@slot.ToString(@"hh\:mm")</MudText>
+                                </MudItem>
+                                <MudItem xs="1">
+                                    <MudButton Variant="Variant.Filled" Color="Color.Primary"
+                                                Style="height: 40px; margin: 2px;"
+                                                @onclick="() => SelectTime(slot)">
+                                        @slot.ToString(@"hh\:mm")
+                                    </MudButton>
+                                </MudItem>
+							</MudGrid>
+                        }
+                    </MudContainer>
+
+                    @* <MudContainer MaxWidth="MaxWidth.Large">
+                        @foreach (var slot in TimeSlots)
+                        {
+                            <MudGrid Spacing="1">
+                                <MudItem xs="12">
+                                    <MudText Typo="Typo.body2" Align="Align.Center">@slot.ToString(@"hh\:mm")</MudText>
+                                </MudItem>
+                                @for (int day = 0; day < 7; day++)
+                                {
+                                    <MudItem xs="1">
+                                        <MudPaper Class="pa-2" Elevation="1">
+                                            <MudButton FullWidth Variant="Variant.Text" Size="Size.Small"
+                                                       @onclick="() => SelectTime(slot)">
+                                                Available
+                                            </MudButton>
+                                        </MudPaper>
+                                    </MudItem>
+                                }
+                            </MudGrid>
+                        }
+                    </MudContainer> *@
+
+
+                    <MudButton FullWidth="true"
+                               Variant="Variant.Filled"
+                               Color="Color.Inherit"
+                               StartIcon="@Icons.Material.Filled.Add"
+                               Disabled="!success"
+                               OnClick="async () => await CreateBookingAsync(JS)"
+                               Class="py-3 rounded-2xl fw-bold text-h6 elevation-4 hover:elevation-6 transition-all"
+                               Style="background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%) !important; box-shadow: 0 10px 30px rgba(79,172,254,0.4) !important;">
+                        Create Booking
+                    </MudButton>
+
+                </MudForm>
+
+                <MudDivider Class="my-6" DividerClass="mud-divider-light" />
+
+                <MudText Align="Align.Center" Typo="Typo.body2">
+                    <span class="opacity-80">Don&apos;t have an account?</span>
+                    <MudLink OnClick='() => Navigation.NavigateTo("/register")'
+                             Class="ml-1 cursor-pointer fw-bold hover:text-primary transition-all"
+                             Typo="Typo.body2" Color="Color.Primary">
+                        Create Account
+                    </MudLink>
+                </MudText>
+
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+

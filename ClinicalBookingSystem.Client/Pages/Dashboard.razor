@@ -1,0 +1,143 @@
+﻿@inject NavigationManager Navigation
+
+@page "/dashboard"
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center" Style="height: 100vh;">
+    <MudGrid>
+        @* To do, maybe create an enum with the different card option, e.g. Bookings, Clinics, Patients, etc. Obviously I'll need to have different roles, e.g Admin, User etc. *@
+        @*
+            @for (int i = 1; i <= 6; i++)
+            {
+                <MudItem xs="12" sm="4">
+                    <MudCard>
+                        <MudCardContent>
+                            <MudText Typo="Typo.h5">Card @i</MudText>
+                            <MudText Typo="Typo.body2">Description for card @i</MudText>
+                        </MudCardContent>
+                    </MudCard>
+                </MudItem>
+            }
+        *@
+        <MudItem xs="12" sm="4">
+            <MudCard>
+
+                <MudCardMedia Image="images/bookings.jpg" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">Bookings</MudText>
+                    <MudText Typo="Typo.body2">This section is for managing bookings.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" OnClick="async () => Booking()" Color="Color.Primary">Manage Bookings</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudCard>
+
+                <MudCardMedia Image="images/patients.jpg" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">Patients</MudText>
+                    <MudText Typo="Typo.body2">This section is for managing patients.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Manage Patients</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudCard>
+
+                <MudCardMedia Image="images/clinics.jpg" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">Clinics</MudText>
+                    <MudText Typo="Typo.body2">This section is for managing clinics.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Manage Clinics</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudCard>
+
+                <MudCardMedia Image="images/clinic-services.jpg" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">Clinic Services</MudText>
+                    <MudText Typo="Typo.body2">This section is for managing clinic services.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Manage Clinic Services</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudCard>
+
+                <MudCardMedia Image="images/card-1.jpg" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">[Card 1]</MudText>
+                    <MudText Typo="Typo.body2">[Description for Card 1]</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">[Manage Card 1]</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" sm="4">
+            <MudCard>
+
+                <MudCardMedia Image="images/card-2.jpg" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">[Card 2]</MudText>
+                    <MudText Typo="Typo.body2">[Description for Card 2]</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">[Manage Card 2]</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+
+    </MudGrid>
+</MudContainer>

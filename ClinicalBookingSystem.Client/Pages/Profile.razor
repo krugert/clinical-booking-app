@@ -1,0 +1,19 @@
+﻿@page "/profile"
+@inject IJSRuntime JSRuntime
+@rendermode InteractiveWebAssembly
+@inject NavigationManager NavigationManager
+
+<PageTitle>Profile</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="my-16">
+    <MudText Typo="Typo.h3" GutterBottom="true">Profile</MudText>
+    <MudText>Profile page content will be implemented here.</MudText>
+    
+    <MudButton Variant="Variant.Outlined" 
+              Color="Color.Secondary" 
+              StartIcon="Icons.Material.Filled.Logout"
+              Class="mt-4"
+              OnClick="LogoutAsync">
+        Logout
+    </MudButton>
+</MudContainer>

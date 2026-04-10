@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "..\\ClinicalBookingSystem.Api\\ClinicalBookingSystem.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\ClinicalBookingSystem.Client\\ClinicalBookingSystem.Client.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+﻿@inject NavigationManager Navigation
+
+@page "/bookings"
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center" Style="height: 100vh;">
+    <MudGrid>
+
+        <MudItem xs="12" sm="6">
+            <MudCard>
+
+                <MudCardMedia Image="@Icons.Material.Filled.Add" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">Create Booking</MudText>
+                    <MudText Typo="Typo.body2">Create a booking.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" OnClick="async () => CreateBooking()" Color="Color.Primary">Create Booking</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+
+        <MudItem xs="12" sm="6">
+            <MudCard>
+
+                <MudCardMedia Image="@Icons.Material.Filled.Update" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">Update Booking</MudText>
+                    <MudText Typo="Typo.body2">Update a booking.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Update Booking</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+
+        <MudItem xs="12" sm="6">
+            <MudCard>
+
+                <MudCardMedia Image="@Icons.Material.Filled.Delete" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">Delete Booking</MudText>
+                    <MudText Typo="Typo.body2">Delete a booking.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Delete Booking</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+
+        <MudItem xs="12" sm="6">
+            <MudCard>
+
+                <MudCardMedia Image="@Icons.Material.Filled.ReadMore" Style="width: 257px;" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">View Booking</MudText>
+                    <MudText Typo="Typo.body2">View a booking.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">View Booking</MudButton>
+                </MudCardActions>
+
+
+                <MudCardContent>
+                    <MudText Typo="Typo.h5"></MudText>
+                    <MudText Typo="Typo.body2"></MudText>
+                </MudCardContent>
+
+            </MudCard>
+        </MudItem>
+
+    </MudGrid>
+</MudContainer>

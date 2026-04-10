@@ -1,0 +1,82 @@
+﻿@page "/register"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@inject MudBlazor.ISnackbar Snackbar
+@rendermode InteractiveWebAssembly
+@using ClinicalBookingSystem.Infrastructure.Models.DTOs
+
+<PageTitle>Register</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="d-flex align-center" Style="height: 100vh;">
+    <MudGrid>
+        <!-- Left Column: Illustration or Title -->
+        <MudItem xs="12" md="6" Class="d-flex flex-column justify-center align-center">
+
+            <MudText Typo="Typo.h3" Align="Align.Center" Class="mt-2 mb-2 fw-bold drop-shadow">
+                Create Account
+            </MudText>
+
+            <MudText Typo="Typo.body1" Align="Align.Center" Class="mb-6 opacity-90 drop-shadow">
+                Join our community and get started today
+            </MudText>
+
+        </MudItem>
+
+        <!-- Right Column: Login Form -->
+        <MudItem xs="12" md="6">
+            <MudPaper Class="pa-8" Elevation="4">
+                <MudText Typo="Typo.h5" Class="mb-4">Register</MudText>
+
+                <MudForm @ref="form" @bind-IsValid="@success">
+
+                    <MudTextField Label="Username"
+                                  Placeholder="Choose a username"
+                                  @bind-Value="model.Username"
+                                  Required="true"
+                                  Variant="Variant.Filled"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Person"
+                                  AdornmentColor="Color.Inherit"
+                                  Class="mb-4 rounded-2xl"
+                                  Style="background: rgba(255,255,255,0.9) !important;" />
+
+                    <MudTextField Label="Password"
+                                  Placeholder="Create a strong password"
+                                  @bind-Value="model.Password"
+                                  InputType="InputType.Password"
+                                  Required="true"
+                                  Variant="Variant.Filled"
+                                  Adornment="Adornment.Start"
+                                  AdornmentIcon="@Icons.Material.Filled.Lock"
+                                  AdornmentColor="Color.Inherit"
+                                  Class="mb-6 rounded-2xl"
+                                  Style="background: rgba(255,255,255,0.9) !important;" />
+
+                    <MudButton FullWidth="true"
+                               Variant="Variant.Filled"
+                               Color="Color.Inherit"
+                               StartIcon="@Icons.Material.Filled.PersonAdd"
+                               Disabled="!success"
+                               OnClick="RegisterAsync"
+                               Class="py-3 rounded-2xl fw-bold text-h6 elevation-4 hover:elevation-6 transition-all"
+                               Style="background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%) !important; box-shadow: 0 10px 30px rgba(79,172,254,0.4) !important;">
+                        Create Account
+                    </MudButton>
+
+                </MudForm>
+
+                <MudDivider Class="my-6" DividerClass="mud-divider-light" />
+
+                <MudText Align="Align.Center" Typo="Typo.body2">
+                    <span class="opacity-80">Already have an account?</span>
+                    <MudLink OnClick='() => Navigation.NavigateTo("/login")'
+                             Class="ml-1 cursor-pointer fw-bold hover:text-primary transition-all"
+                             Typo="Typo.body2" Color="Color.Primary">
+                        Sign In
+                    </MudLink>
+                </MudText>
+
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
